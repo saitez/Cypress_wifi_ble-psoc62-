@@ -134,10 +134,36 @@ int8_t bmi160_extract_accel(struct bmi160_sensor_data *aux_data, uint8_t aux_len
 
 //start offset compensation
 
-int8_t bmi160_start_foc()
+int8_t bmi160_start_foc(const struct bmi160_foc_conf *foc_conf, struct bmi160_offsets *offset, struct bmi160_dev const *dev);
+
+
+//get offsets
+
+int8_t bmi160_get_offsets(struct bmi160_foc_conf *foc_conf, const struct bmi160_dev *dev);
+
+
+//set offsets
+
+int8_t bmi160_set_offsets(const struct bmi160_foc_conf *foc_conf, struct bmi160_offsets *offset, struct bmi160_dev const *dev);
+
+//nvm update
+
+int8_t bmi160_update_nvm(struct bmi160_dev const *dev);
+
+//get interrupt status
+
+int8_t bmi160_get_int_status(enum bmi160_int_status_sel int_status_sel, union bmi160_int_status *int_status, struct bmi160_dev const *dev);
 
 
 
+
+#ifdef __cplusplus
+
+}
+
+#endif
+
+#endif
 
 
 
